@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~@fortawesome/fontawesome-free/css/fontawesome.min.css";
+@import "~@fortawesome/fontawesome-free/css/solid.min.css";
+
+  input[type=checkbox] {
+    accent-color: #0039A6 !important;
+    border-radius:4px !important;
+  }
+
+font-avenir-black {
+    font-family: "Avenir-Black" !important;
+  }
+  
+  .font-avenir-book {
+    font-family: "Avenir-Book" !important;
+  }
+  
+  .font-avenir-roman {
+    font-family: "Avenir-Roman" !important;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Avenir-Book", "Helvetica Neue", sans-serif;
+    background: white;
+  }
+  

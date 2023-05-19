@@ -1,1 +1,14 @@
-<p>table works!</p>
+<table class="w-full">
+    <th class="w-full bg-[#f8f9fb] py-4 rounded-md">
+      <tr class="flex gap-2 items-center">
+        <ng-content select="[header]"></ng-content>
+      </tr>
+    </th>
+    <tbody class="w-full rounded-md">
+      <ng-content
+        select="[body]"
+        class="flex gap-2 items-center border-b"
+      ></ng-content>
+    </tbody>
+  </table>
+  

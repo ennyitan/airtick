@@ -1,0 +1,144 @@
+<div class="px-2 lg:px-8 py-8"  *ngIf="users$ | async as users">
+    <div class="flex justify-between items-center">
+      <div>
+        <h1 class="font-extrabold text-lg text-[#232A38] mb-1 font-avenir-black">
+          Users
+        </h1>
+        <p class="text-[#4B5466] font-avenir-book">
+          See and manage all users on the Admin system.
+        </p>
+      </div>
+    </div>
+    <div class="bg-white rounded-lg border border-solid py-4 mt-12 px-8">
+      <div class="flex justify-between items-center py-6">
+        <div
+          [formGroup]="searchGroup"
+          class="flex gap-4 w-[40%] py-4 bg-[#EFF2F6] rounded-xl"
+        >
+          <img src="assets/images/search.svg" alt="search" class="pl-4" />
+          <input
+            formControlName="searchField"
+            type="text"
+            placeholder="Search"
+            class="border-0 outline-none w-full px-2 bg-[#EFF2F6]"
+          />
+        </div>
+        
+        <div class="">
+          <div class="dropdown dropdown-end">
+            <label
+              (click)="showFilterMenu = false"
+              tabindex="0"
+              class="btn m-2 bg-white outline-0 hover:bg-white border border-solid flex gap-1 border-[#EFF2F6] hover:border-[#EFF2F6] text-[#003CAB]"
+            >
+              <p class="capitalize">{{filter}}</p>
+              <img
+                src="assets/images/keyboard_arrow_down_24px@2x.svg"
+                alt="arrow-down"
+              />
+            </label>
+  
+            <ul
+              tabindex="0"
+              class="dropdown-content menu p-2 shadow bg-white rounded-box w-60"
+              [ngClass]="showFilterMenu ? 'hidden' : 'block'"
+            >
+              <li class="font-bold ml-3">Filter</li>
+              <li class="text-[#6E7A91]" (click)="onSelectFilter('active', 'active')">
+                <a> Active</a>
+              </li>
+              <li class="text-[#6E7A91]" (click)="onSelectFilter('inactive', 'inactive')">
+                <a>Inactive</a>
+              </li>
+            </ul>
+          </div>
+          <div class="dropdown dropdown-end">
+            <label
+              (click)="showSortBy = false"
+              tabindex="0"
+              class="btn m-2 bg-white outline-0 hover:bg-white border border-solid flex gap-1 border-[#EFF2F6] hover:border-[#EFF2F6] text-[#003CAB]"
+            >
+              <p class="capitalize">{{ sort }}</p>
+              <img
+                src="assets/images/keyboard_arrow_down_24px@2x.svg"
+                alt="arrow-down"
+              />
+            </label>
+  
+            <ul
+              tabindex="0"
+              class="dropdown-content menu p-2 shadow bg-white rounded-box w-[300px]"
+              [ngClass]="showSortBy ? 'hidden' : 'block'"
+            >
+              <li class="font-bold ml-3">Sort</li>
+              <li
+                class="text-[#6E7A91]"
+                (click)="onSelect('ascending (date created)', '1')"
+              >
+                <a>Ascending Order(date created)</a>
+              </li>
+              <li
+                class="text-[#6E7A91]"
+                (click)="onSelect('descending (date created)', '2')"
+              >
+                <a>Descending Order(date created)</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <app-table>
+        <div header class="w-full flex justify-around">
+          <td class="text-[#0039A6] w-[5%] font-avenir-book text-left pl-2">
+            S/N
+          </td>
+          <td class="text-[#0039A6] w-[10%] font-avenir-book text-left">
+            Name
+          </td>
+          <td class="text-[#0039A6] w-[10%] font-avenir-book text-left">
+            Username
+          </td>
+          <td class="text-[#0039A6] w-[15%] font-avenir-book text-left">
+            Email
+          </td>
+          <td class="text-[#0039A6] w-[15%] font-avenir-book text-left">
+            Website
+          </td>
+          <td class="text-[#0039A6] w-[10%] font-avenir-book text-left">
+            Action
+          </td>
+        </div>
+        <div body>
+          <tr
+            class="flex gap-2 items-center justify-around border-b last:border-b-0 text-[#4B5466]"
+            *ngFor="let user of users.data; let i = index"
+          >
+            <td class="py-8 font-avenir-book w-[5%] pl-2">
+             S/N
+            </td>
+            <td class="font-avenir-book capitalize text-sm w-[10%]">
+              {{i + 1}}
+            </td>
+            <td class="font-avenir-book w-[10%]">
+              {{user.name}}
+            </td>
+  
+            <td class="w-[15%] font-avenir-book">
+             {{user.username}}
+            </td>
+            <td class="w-[15%] font-avenir-book">
+              {{user.website}}
+            </td>
+          
+            <td
+              class="w-[10%] font-avenir-book cursor-pointer"
+              routerLink="/main/view-single-user/{{user.id}}"
+            >
+              View Details
+            </td>
+          </tr>
+        </div>
+      </app-table>
+    </div>
+  </div>
+  
