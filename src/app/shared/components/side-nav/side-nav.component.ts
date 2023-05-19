@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-side-nav',
@@ -6,10 +6,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent implements OnInit {
-
-  constructor() { }
+  @Output() closeDiv = new EventEmitter()
+  firstname : string = ""
+  lastname : string = ""
+  avatar! : string 
+  verificationStatus! : boolean 
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+  
   }
 
+  menuList = [
+    {
+      title : " Dashboard",
+      icon : "fa-home",
+      route : "/main"
+    },
+    {
+      title : "All users",
+      icon : "fa-book",
+      route : "/main/all-users"
+    },
+    {
+      title : "Profile",
+      icon : "fa-eye",
+      route : "/main/profile"
+    },
+    {
+      title : "Settings",
+      icon : "fa-calendar-o",
+      route : "/dashboard"
+    },
+    
+  ]
+
+  closeOnClick() {
+    this.closeDiv.emit()
+  }
 }

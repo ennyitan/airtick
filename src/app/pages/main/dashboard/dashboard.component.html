@@ -1,1 +1,41 @@
-<p>dashboard works!</p>
+<div class="px-2 lg:px-8 py-8 grid grid-cols-1 lg:space-y-0  space-y-4 lg:grid-cols-3 lg:space-x-8">
+    <div class="bg-white border-[#D0D5DD] border-2 rounded-lg p-4" >
+        <p class="font-fira font-bold text-gray "> Total Number Of Users </p>
+        <div class="flex items-center justify-between">
+            <h1 class="text-4xl font-rubik font-bold text-blue tracking-wider">10 </h1>
+            <div>
+                <i  class="fa fa-book text-2xl text-deep-blue" aria-hidden="true"></i> 
+            </div>
+        </div>
+        <p class="text-gray-one text-[12px] font-fira font-bold"> 21% more than last month </p>
+    </div>
+    <div class="border-[#D0D5DD] border-2 rounded-lg p-4">
+        <p class="font-fira font-bold text-gray text-blue"> Total Active Users </p>
+            <div class="flex items-center justify-between">
+                <h1 class="text-4xl font-rubik font-bold text-deep-blue tracking-wider"> 4 </h1>
+                <div>
+                    <i  class="fa fa-eye text-2xl text-deep-blue" aria-hidden="true"></i> 
+                </div>
+            </div>
+        <p class="text-gray-one text-[12px] font-fira font-bold"> 21% more than last month </p>
+    </div>
+    <div class="border-[#D0D5DD] border-2 rounded-lg p-4" >
+            <p class="font-fira font-bold text-gray "> Total Inactive Users </p>
+            <div class="flex items-center justify-between">
+                <h1 class="text-4xl font-rubik font-bold  tracking-wider"> 6 </h1>
+                <div>
+                    <i  class="fa fa-eye text-2xl " aria-hidden="true"></i> 
+                </div>
+            </div>
+            <p class=" text-[12px] font-fira font-bold"> 21% more than last month </p>
+    </div>
+</div>
+<div class="px-2 lg:px-8 py-8 md:grid w-full md:grid-cols-12 h-[50vh] md:gap-6 md:items-center">
+    <!-- line chart -->
+<div class=" w-full md:col-span-8">
+    <app-line-chart></app-line-chart>
+</div>
+<div class="w-full md:col-span-4">
+    <app-pie-chart></app-pie-chart>
+</div>
+</div>
