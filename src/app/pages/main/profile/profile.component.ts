@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 // import { MatDialog } from '@angular/material';
 import { EditAddressComponent } from 'src/app/shared/components/edit-address/edit-address.component';
 import { EditDobComponent } from 'src/app/shared/components/edit-dob/edit-dob.component';
@@ -14,7 +15,7 @@ import { UploadComponent } from 'src/app/shared/components/upload/upload.compone
 export class ProfileComponent implements OnInit {
   userData : any
   constructor(
-    // private dialog : MatDialog,
+    private dialog : MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -22,33 +23,33 @@ export class ProfileComponent implements OnInit {
   }
 
   openModal(firstname: string, lastname:string) {
-    // this.dialog.open(EditNameComponent, {
-    //   minWidth : "300px",
-    //   data: {
-    //     firstname,
-    //     lastname
-    //   }
-    // })
+    this.dialog.open(EditNameComponent, {
+      minWidth : "300px",
+      data: {
+        firstname,
+        lastname
+      }
+    })
   }
 
   openDOBModal(dob: string) {
-    // this.dialog.open(EditDobComponent, {
-    //   minWidth : "300px",
-    //   data: {
-    //     dateOfBirth : dob,
+    this.dialog.open(EditDobComponent, {
+      minWidth : "300px",
+      data: {
+        dateOfBirth : dob,
         
-    //   }
-    // })
+      }
+    })
   }
 
   openPhoneModal(val: string) {
-    // this.dialog.open(EditPhoneComponent, {
-    //   minWidth : "300px",
-    //   data: {
-    //     phone : val,
+    this.dialog.open(EditPhoneComponent, {
+      minWidth : "300px",
+      data: {
+        phone : val,
         
-    //   }
-    // })
+      }
+    })
   }
 
   openAddressModal(val: string) {
