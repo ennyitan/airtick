@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
    if(this.loginForm.value.email == users?.email && this.loginForm.value.password == users?.password){
     console.log('login Success ')
    }else {
-    console.log('commot bosy')
+    console.log('not succesful')
    }
   }
 }

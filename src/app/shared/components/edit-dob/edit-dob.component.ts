@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-// import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
+import { FormGroup, Validator, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-dob',
@@ -13,28 +13,28 @@ export class EditDobComponent implements OnInit {
   formGroup!: FormGroup;
 
   constructor(
-    // @Inject(MAT_DIALOG_DATA) public data: any,
-    // private dialog : MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialog : MatDialog,
     private router : Router
   ) { }
 
   ngOnInit(): void {
     this.createForm()
-    // this.primeNumber(9)
-    // console.log(this.data)
-    // this.formGroup.patchValue({
-    //   birthdate : this.data.dateOfBirth
-    // })
+    this.primeNumber(9)
+    console.log(this.data)
+    this.formGroup.patchValue({
+      birthdate : this.data.dateOfBirth
+    })
     
   }
 
   confrimationModal() {
-    // this.dialog.open(ConfirmationComponent, {
-    //   minWidth : "300px",
-    //   data : {
-    //     message : "Are you sure you want to make this changes to your profile!"
-    //   }
-    // })
+    this.dialog.open(ConfirmationComponent, {
+      minWidth : "300px",
+      data : {
+        message : "Are you sure you want to make this changes to your profile!"
+      }
+    })
 
   }
 
@@ -53,5 +53,4 @@ export class EditDobComponent implements OnInit {
       }
     }
   }
-
 }

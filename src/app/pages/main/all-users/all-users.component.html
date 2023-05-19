@@ -92,19 +92,19 @@
           <td class="text-[#0039A6] w-[5%] font-avenir-book text-left pl-2">
             S/N
           </td>
-          <td class="text-[#0039A6] w-[10%] font-avenir-book text-left">
+          <td class="text-[#0039A6] w-[20%] font-avenir-book text-left">
             Name
           </td>
-          <td class="text-[#0039A6] w-[10%] font-avenir-book text-left">
+          <td class="text-[#0039A6] w-[20%] font-avenir-book text-left">
             Username
           </td>
-          <td class="text-[#0039A6] w-[15%] font-avenir-book text-left">
+          <td class="text-[#0039A6] w-[20%] font-avenir-book text-left">
             Email
           </td>
-          <td class="text-[#0039A6] w-[15%] font-avenir-book text-left">
+          <td class="text-[#0039A6] w-[20%] font-avenir-book text-left">
             Website
           </td>
-          <td class="text-[#0039A6] w-[10%] font-avenir-book text-left">
+          <td class="text-[#0039A6] w-[20%] font-avenir-book text-left">
             Action
           </td>
         </div>
@@ -114,24 +114,25 @@
             *ngFor="let user of users.data; let i = index"
           >
             <td class="py-8 font-avenir-book w-[5%] pl-2">
-             S/N
-            </td>
-            <td class="font-avenir-book capitalize text-sm w-[10%]">
               {{i + 1}}
             </td>
-            <td class="font-avenir-book w-[10%]">
+            
+            <td class="font-avenir-book w-[20%]">
               {{user.name}}
             </td>
   
-            <td class="w-[15%] font-avenir-book">
+            <td class="w-[20%] font-avenir-book">
              {{user.username}}
             </td>
-            <td class="w-[15%] font-avenir-book">
+            <td class="w-[20%] font-avenir-book">
+              {{user.email}}
+             </td>
+            <td class="w-[20%] font-avenir-book">
               {{user.website}}
             </td>
           
             <td
-              class="w-[10%] font-avenir-book cursor-pointer"
+              class="w-[20%] font-avenir-book cursor-pointer"
               routerLink="/main/view-single-user/{{user.id}}"
             >
               View Details

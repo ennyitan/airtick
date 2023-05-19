@@ -17,6 +17,8 @@ import { EditDobComponent } from './components/edit-dob/edit-dob.component';
 import { EditAddressComponent } from './components/edit-address/edit-address.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 const components : any[] = [
   ButtonComponent,
@@ -39,13 +41,14 @@ const components : any[] = [
 
 @NgModule({
   declarations: [
-   ...components,
+   ...components
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    MatDialogModule,
   ],
   exports: [
     ...components
